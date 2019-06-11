@@ -15,13 +15,14 @@ public class ClickControl : MonoBehaviour
     public Button P2LButton;
     public Button P2RButton;
 
-    public Sprite pushedP1;
-    public Sprite pushedP2;
+   // public Sprite pushedP1;
+   // public Sprite pushedP2;
 
     public void Click(int player, int answer)
     {
         if (!isTicked)
         {
+            Debug.Log("anana hükmeden");
             isTicked = true;
             answerManager.ControlAnswer(player,answer);
         }
@@ -30,24 +31,25 @@ public class ClickControl : MonoBehaviour
 
     public void Player1L()
     {
+        Debug.Log("ameeeeennnnnnnnnn++++");
         Click(1,1);
-        P1LButton.image.sprite = pushedP1;
+       // P1LButton.image.sprite = pushedP1;
     }
     public void Player1R()
     {
         Click(1,2);
-        P1RButton.image.sprite = pushedP1;
+       // P1RButton.image.sprite = pushedP1;
     }
 
 
     public void Player2L()
     {
         Click(2,1);
-        P2LButton.image.sprite = pushedP2;
+       // P2LButton.image.sprite = pushedP2;
     }
     public void Player2R()
     {
         Click(2,2);
-        P2RButton.image.sprite = pushedP2;
+      // P2RButton.image.sprite = pushedP2;
     }
 }

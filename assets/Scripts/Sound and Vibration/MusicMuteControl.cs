@@ -21,16 +21,16 @@ public class MusicMuteControl : MonoBehaviour
         if (!PlayerPrefs.HasKey(muteMusic))
         {
             musicSource.mute = false;
-            PlayerPrefs.SetInt(muteMusic, 0);
+            PlayerPrefs.SetFloat(muteMusic, 0);
             
             muteMusicButton.SetActive(false);
             nonMuteMusicButton.SetActive(true);
         }
         else
         {
-            musicSource.mute = PlayerPrefs.GetInt(muteMusic) == 1;
+            musicSource.mute = PlayerPrefs.GetFloat(muteMusic) == 1;
 
-            if (PlayerPrefs.GetInt(muteMusic) == 1)
+            if (PlayerPrefs.GetFloat(muteMusic) == 1)
             {
                 muteMusicButton.SetActive(true);
                 nonMuteMusicButton.SetActive(false);
@@ -45,8 +45,8 @@ public class MusicMuteControl : MonoBehaviour
 
     public void MuteMusic()
     {
-        PlayerPrefs.SetInt(muteMusic, 1);
-        musicSource.mute = PlayerPrefs.GetInt(muteMusic) == 1;
+        PlayerPrefs.SetFloat(muteMusic, 1);
+        musicSource.mute = PlayerPrefs.GetFloat(muteMusic) == 1;
         
         muteMusicButton.SetActive(true);
         nonMuteMusicButton.SetActive(false);
@@ -54,8 +54,8 @@ public class MusicMuteControl : MonoBehaviour
 
     public void NonMuteMusic()
     {
-        PlayerPrefs.SetInt(muteMusic, 0);
-        musicSource.mute = PlayerPrefs.GetInt(muteMusic) == 1;
+        PlayerPrefs.SetFloat(muteMusic, 0);
+        musicSource.mute = PlayerPrefs.GetFloat(muteMusic) == 1;
         
         muteMusicButton.SetActive(false);
         nonMuteMusicButton.SetActive(true);

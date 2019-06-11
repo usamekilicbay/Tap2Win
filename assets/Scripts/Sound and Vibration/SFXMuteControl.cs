@@ -20,17 +20,17 @@ public class SFXMuteControl : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(muteSFX))
         {
-            PlayerPrefs.SetInt(muteSFX, 0);
-            sfxSource.mute = PlayerPrefs.GetInt(muteSFX) == 1;
+            PlayerPrefs.SetFloat(muteSFX, 0);
+            sfxSource.mute = PlayerPrefs.GetFloat(muteSFX) == 1;
             
             muteSFXButton.SetActive(false);
             nonMuteSFXButton.SetActive(true);
         }
         else
         {
-            sfxSource.mute = PlayerPrefs.GetInt(muteSFX) == 1;
+            sfxSource.mute = PlayerPrefs.GetFloat(muteSFX) == 1;
            
-            if (PlayerPrefs.GetInt(muteSFX) == 1)
+            if (PlayerPrefs.GetFloat(muteSFX) == 1)
             {
                 muteSFXButton.SetActive(true);
                 nonMuteSFXButton.SetActive(false);
@@ -45,8 +45,8 @@ public class SFXMuteControl : MonoBehaviour
 
     public void MuteSoundSFX()
     {
-        PlayerPrefs.SetInt(muteSFX, 1);
-        sfxSource.mute = PlayerPrefs.GetInt(muteSFX) == 1;
+        PlayerPrefs.SetFloat(muteSFX, 1);
+        sfxSource.mute = PlayerPrefs.GetFloat(muteSFX) == 1;
 
         muteSFXButton.SetActive(true);
         nonMuteSFXButton.SetActive(false);
@@ -54,8 +54,8 @@ public class SFXMuteControl : MonoBehaviour
 
     public void NonMuteSFX()
     {
-        PlayerPrefs.SetInt(muteSFX, 0);
-        sfxSource.mute = PlayerPrefs.GetInt(muteSFX) == 1;
+        PlayerPrefs.SetFloat(muteSFX, 0);
+        sfxSource.mute = PlayerPrefs.GetFloat(muteSFX) == 1;
 
         muteSFXButton.SetActive(false);
         nonMuteSFXButton.SetActive(true);

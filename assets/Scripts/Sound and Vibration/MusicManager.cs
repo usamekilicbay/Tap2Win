@@ -16,12 +16,13 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+    //    PlayMusic();
     }
 
     void PlayMusic()
     {
         //musicSource.clip = startSound;
-        musicSource.PlayDelayed(0.5f);
+     //   musicSource.PlayDelayed(0.5f);
     }
 
     public void StartGame()

@@ -7,6 +7,7 @@ public class AnswerManager : MonoBehaviour
 {
     public ClickControl clickControl;
     public GameOverManager gameOverManager;
+    public CountdownAnimationControl countdownAnimationControl;
     MusicManager musicManager;
 
     public int rightAnswer;
@@ -26,12 +27,24 @@ public class AnswerManager : MonoBehaviour
     private void Start()
     {
         musicManager = MusicManager.Instance;
-        SetRightAnswer();
+
+        SetRightAnswerBridge();
     }
 
-    void SetRightAnswer()
+    void SetRightAnswerBridge()
     {
+        countdownAnimationControl.countDown = true;
+        countdownAnimationControl.CountDownAnimation();
 
+        StartCoroutine(SetRightAnswer());
+    }
+
+    IEnumerator SetRightAnswer()
+    {
+        yield return new WaitForSeconds(3f);
+
+        countdownAnimationControl.countDown = false;
+        countdownAnimationControl.CountDownAnimation();
         rightAnswer = Random.Range(1, 3);
 
         targetNumberTextP1.text = rightAnswer.ToString();
@@ -52,14 +65,14 @@ public class AnswerManager : MonoBehaviour
             if (player == 1)
             {
                 vector2 = player1Conq.rectTransform.sizeDelta;
-                player1Conq.rectTransform.sizeDelta = new Vector2(1080, vector2.y + 540);
+                player1Conq.rectTransform.sizeDelta = new Vector2(1080, vector2.y + 360);
                 //winCount++;
                 p1WinCount++;
             }
             else if (player == 2)
             {               
                 vector2 = player2Conq.rectTransform.sizeDelta;
-                player2Conq.rectTransform.sizeDelta = new Vector2(1080, vector2.y + 540);
+                player2Conq.rectTransform.sizeDelta = new Vector2(1080, vector2.y + 360);
                 //winCount++;
                 p2WinCount++;
             }
@@ -74,7 +87,7 @@ public class AnswerManager : MonoBehaviour
             }
             else
             {
-                SetRightAnswer();
+                SetRightAnswerBridge();
             }
         }
         else

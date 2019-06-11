@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ExtraTools;
 
 public class VolumeManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class VolumeManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Volume"))
         {
-            volumeSlider.value = 50f;
+            volumeSlider.value = 0.5f;
             PlayerPrefs.SetFloat("Volume", volumeSlider.value);
             musicSource.volume = volumeSlider.value;
             sfxSource.volume = volumeSlider.value;
@@ -30,6 +31,8 @@ public class VolumeManager : MonoBehaviour
             musicSource.volume = volumeSlider.value;
             sfxSource.volume = volumeSlider.value;
         }
+
+        UIManager.Instance.CanvasChanger(CanvasObjects.MainMenu);
     }
 
     public void SetVolume()

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace ExtraTools {
 
-    public enum CanvasObjects { MainMenu, Settings, InGame , Tutorial}
+    public enum CanvasObjects { MainMenu, Settings, /*InGame ,*/ Tutorial}
 
     public class UIManager : Singleton<UIManager>
     {
@@ -13,8 +14,8 @@ namespace ExtraTools {
         [SerializeField]
         private GameObject settings;
 
-        [SerializeField]
-        private GameObject inGame;
+       /* [SerializeField]
+        private GameObject inGame;*/
 
         [SerializeField]
         private GameObject tutorial;
@@ -25,12 +26,12 @@ namespace ExtraTools {
 
             settings.SetActive(canvasObjects == CanvasObjects.Settings);
 
-            inGame.SetActive(canvasObjects == CanvasObjects.InGame);
+          //  inGame.SetActive(canvasObjects == CanvasObjects.InGame);
 
             tutorial.SetActive(canvasObjects == CanvasObjects.Tutorial);
         }
 
 
-
+        public void InGame() { SceneManager.LoadScene(2); }
     }
 }
